@@ -5,6 +5,8 @@
 
 This project is a continuation of the Backyard Flyer project where you executed a simple square shaped flight path. In this project you will integrate the techniques that you have learned throughout the last several lessons to plan a path through an urban environment. Check out the [project rubric](https://review.udacity.com/#!/rubrics/1534/view) for more detail on what constitutes a passing submission.
 
+Required Steps for a Passing Submission:Load the 2.5D map in the colliders.csv file describing the environment.Discretize the environment into a grid or graph representation.Define the start and goal locations.Perform a search using A* or other search algorithm.Use a collinearity test or ray tracing method (like Bresenham) to remove unnecessary waypoints.Return waypoints in local ECEF coordinates (format for self.all_waypoints is [N, E, altitude, heading], where the drone’s start location corresponds to [0, 0, 0, 0].Write it up.Congratulations!  Your Done!
+
 ## Option to do this project in a GPU backed virtual machine in the Udacity classroom!
 Rather than downloading the simulator and starter files you can simply complete this project in a virual workspace in the Udacity classroom! Follow [these instructions](https://classroom.udacity.com/nanodegrees/nd787/parts/5aa0a956-4418-4a41-846f-cb7ea63349b3/modules/0c12632a-b59a-41c1-9694-2b3508f47ce7/lessons/5f628104-5857-4a3f-93f0-d8a53fe6a8fd/concepts/ab09b378-f85f-49f4-8845-d59025dd8a8e?contentVersion=1.0.0&contentLocale=en-us) to proceed with the VM. 
 
