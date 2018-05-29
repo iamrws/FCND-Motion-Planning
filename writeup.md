@@ -18,24 +18,20 @@
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
 
 ---
-### Explain the Starter Code
-
 #### 1. Explain the functionality of what's provided in `motion_planning.py` and `planning_utils.py`
-These scripts contain a basic planning implementation that includes...
+The file motion_planning.py contains a basic planning implementation that includes the functionality of the previous project backyardflyer with new functionality uch as reading waypoints from a file and traversing these waypoints until completed.  
+
+The file planning_utils.py script returns a grid representation based on obstacles, safety distance and altitude.  Traversing a safe route is the purpose of this planning_utils.py.  Implementation of A* method or another method all-together is permitted.  
 
 #### 1. Set your global home position
 Here students should read the first line of the csv file, extract lat0 and lon0 as floating point values and use the self.set_home_position() method to set global home. Explain briefly how you accomplished this in your code.
 
-
-And here is a lovely picture of our downtown San Francisco environment from above!
-![Map of SF](./misc/map.png)
+Read in the first lines of the colliders.csv file which included the home location of lat/long into a floating point variable. 
 
 #### 2. Set your current local position
 Here as long as you successfully determine your local position relative to global home you'll be all set. Explain briefly how you accomplished this in your code.
 
-
-Meanwhile, here's a picture of me flying through the trees!
-![Forest Flying](./misc/in_the_trees.png)
+Used the global_to_local function to convert from lat/long to ECEF.
 
 #### 3. Set grid start position from local position
 This is another step in adding flexibility to the start location. As long as it works you're good to go!
