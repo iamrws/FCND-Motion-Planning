@@ -45,13 +45,35 @@ This step is to add flexibility to the desired goal location. Should be able to 
 #### 5. Modify A* to include diagonal motion (or replace A* altogether)
 Minimal requirement here is to modify the code in planning_utils() to update the A* implementation to include diagonal motions on the grid that have a cost of sqrt(2), but more creative solutions are welcome. Explain the code you used to accomplish this step.
 
+'''python
+class Action(Enum):
+##added the following code
+	NORTH_WEST (-1, -1, math_sqrt(2))
+	NORTH_EAST (-1, 1, math_sqrt(2))
+	SOUTH_EAST (1, 1, math_sqrt(2))
+	SOUTH_WEST (1, -1, math_sqrt(2))
+'''    
+</br>
+'''python
+def valid_actions(grid, current_node):
+##added the following code
+	if x - 1 < 0 or y - 1 < 0 or grid[x - 1, y - 1] == 1:
+        valid_actions.remove(Action.NORTH_WEST)
+	if x - 1 < 0 or y + 1 > m or grid[x - 1, y + 1] == 1:
+        valid_actions.remove(Action.NORTH_EAST)
+	if x + 1 > 0 or y + 1 > m or grid[x + 1, y + 1] == 1:
+        valid_actions.remove(Action.SOUTH_EAST)	
+	if x + 1 > n or y - 1 < 0 or grid[x + 1, y - 1] == 1:
+        valid_actions.remove(Action.SOUTH_WEST)
+'''        
+
 #### 6. Cull waypoints 
 For this step you can use a collinearity test or ray tracing method like Bresenham. The idea is simply to prune your path of unnecessary waypoints. Explain the code you used to accomplish this step.
 
 The following is credited to: https://stackoverflow.com/questions/328107/how-can-you-determine-a-point-is-between-two-other-points-on-a-line-segment/328193
 
 According to Darius Bacon, "Check if the cross product of b-a and c-a is0: that means all the points are collinear. If they are, check if c's coordinates are between a's and b's. Use either the x or the y coordinates, as long as a and b are separate on that axis (or they're the same on both).
-
+'''python
 def is_on(a, b, c):
     "Return true iff point c intersects the line segment from a to b."
     # (or the degenerate case that all 3 points are coincident)
@@ -66,7 +88,8 @@ def collinear(a, b, c):
 def within(p, q, r):
     "Return true iff q is between p and r (inclusive)."
     return p <= q <= r or r <= q <= p
-
+'''
+</br>
 This answer used to be a mess of three updates. The worthwhile info from them: Brian Hayes's chapter in Beautiful Code covers the design space for a collinearity-test function -- useful background. Vincent's answer helped to improve this one. And it was Hayes who suggested testing only one of the x or the y coordinates; originally the code had and in place of if a.x != b.x else."
 
 
