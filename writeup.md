@@ -26,15 +26,18 @@ The file planning_utils.py script returns a grid representation based on obstacl
 #### 1. Set your global home position
 Here students should read the first line of the csv file, extract lat0 and lon0 as floating point values and use the self.set_home_position() method to set global home. Explain briefly how you accomplished this in your code.
 
-Read in the first lines of the colliders.csv file which included the home location of lat/long into a floating point variable. 
+Here I read in the first line of the colliders.csv file which included the home location of lat/long into a floating point variable. 
+This requires parsing the string, stripping the words lat/long as well as dividing up between lat/long.  
 
 #### 2. Set your current local position
 Here as long as you successfully determine your local position relative to global home you'll be all set. Explain briefly how you accomplished this in your code.
 
-Used the global_to_local function to convert from lat/long to ECEF.
+Used the global_to_local function to convert from lat/long.  
 
 #### 3. Set grid start position from local position
 This is another step in adding flexibility to the start location. As long as it works you're good to go!
+
+Part our testing is from any start location in the grid, so this flexibility is required.  
 
 #### 4. Set grid goal position from geodetic coords
 This step is to add flexibility to the desired goal location. Should be able to choose any (lat, lon) within the map and have it rendered to a goal location on the grid.
