@@ -50,8 +50,7 @@ For this step you can use a collinearity test or ray tracing method like Bresenh
 
 The following is credited to: https://stackoverflow.com/questions/328107/how-can-you-determine-a-point-is-between-two-other-points-on-a-line-segment/328193
 
-According to Darius Bacon and the book Beautiful Code, 
-"Check if the cross product of b-a and c-a is0: that means all the points are collinear. If they are, check if c's coordinates are between a's and b's. Use either the x or the y coordinates, as long as a and b are separate on that axis (or they're the same on both).
+According to Darius Bacon, "Check if the cross product of b-a and c-a is0: that means all the points are collinear. If they are, check if c's coordinates are between a's and b's. Use either the x or the y coordinates, as long as a and b are separate on that axis (or they're the same on both).
 
 def is_on(a, b, c):
     "Return true iff point c intersects the line segment from a to b."
