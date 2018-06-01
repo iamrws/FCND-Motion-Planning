@@ -48,6 +48,27 @@ Minimal requirement here is to modify the code in planning_utils() to update the
 #### 6. Cull waypoints 
 For this step you can use a collinearity test or ray tracing method like Bresenham. The idea is simply to prune your path of unnecessary waypoints. Explain the code you used to accomplish this step.
 
+The following is credited to: https://stackoverflow.com/questions/328107/how-can-you-determine-a-point-is-between-two-other-points-on-a-line-segment/328193
+
+According to Darius Bacon and the book Beautiful Code, 
+"Check if the cross product of b-a and c-a is0: that means all the points are collinear. If they are, check if c's coordinates are between a's and b's. Use either the x or the y coordinates, as long as a and b are separate on that axis (or they're the same on both).
+
+def is_on(a, b, c):
+    "Return true iff point c intersects the line segment from a to b."
+    # (or the degenerate case that all 3 points are coincident)
+    return (collinear(a, b, c)
+            and (within(a.x, c.x, b.x) if a.x != b.x else 
+                 within(a.y, c.y, b.y)))
+
+def collinear(a, b, c):
+    "Return true iff a, b, and c all lie on the same line."
+    return (b.x - a.x) * (c.y - a.y) == (c.x - a.x) * (b.y - a.y)
+
+def within(p, q, r):
+    "Return true iff q is between p and r (inclusive)."
+    return p <= q <= r or r <= q <= p
+
+This answer used to be a mess of three updates. The worthwhile info from them: Brian Hayes's chapter in Beautiful Code covers the design space for a collinearity-test function -- useful background. Vincent's answer helped to improve this one. And it was Hayes who suggested testing only one of the x or the y coordinates; originally the code had and in place of if a.x != b.x else."
 
 
 ### Execute the flight
