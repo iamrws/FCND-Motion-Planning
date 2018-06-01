@@ -19,7 +19,7 @@
 
 ---
 #### 1. Explain the functionality of what's provided in `motion_planning.py` and `planning_utils.py`
-The file motion_planning.py contains a basic planning implementation that includes the functionality of the previous project backyard_flyer.py with new functionality uch as reading waypoints from a file and traversing these waypoints until completed.  
+The file motion_planning.py contains a basic planning implementation that includes the functionality of the previous project backyard_flyer.py with new functionality such as reading waypoints from a file and traversing these waypoints until completed.  
 
 The file planning_utils.py script returns a grid representation based on obstacles, safety distance and altitude.  Traversing a safe route is the purpose of this planning_utils.py.  Implementation of A* method or another method all-together is permitted.  
 
