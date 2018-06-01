@@ -72,7 +72,7 @@ This answer used to be a mess of three updates. The worthwhile info from them: B
 
 ### Execute the flight
 #### 1. Does it work?
-It works!
+It works! My Youtube channel has the video: LINK
 
 ### Double check that you've met specifications for each of the [rubric](https://review.udacity.com/#!/rubrics/1534/view) points.
   
